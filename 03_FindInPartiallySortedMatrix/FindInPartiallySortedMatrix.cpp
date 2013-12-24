@@ -15,14 +15,15 @@ bool Find(int* matrix, int rows, int columns, int number)
     {
         int row = 0;
         int column = columns - 1;
-        while(row < rows && column >=0)
+        while(row < rows && column >= 0)
         {
-            if(matrix[row * columns + column] == number)
+            int idx = row * columns + column;
+            if(matrix[idx] == number)
             {
                 found = true;
                 break;
             }
-            else if(matrix[row * columns + column] > number)
+            else if(matrix[idx] > number)
                 -- column;
             else
                 ++ row;
@@ -32,7 +33,7 @@ bool Find(int* matrix, int rows, int columns, int number)
     return found;
 }
 
-// ====================²âÊÔ´úÂë====================
+// ==================== ²âÊÔ´úÂë ====================
 void Test(char const* testName, int* matrix, int rows, int columns, int number, bool expected)
 {
     if(testName != NULL)
