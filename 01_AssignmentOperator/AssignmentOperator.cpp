@@ -49,6 +49,7 @@ CMyString::~CMyString()
     delete[] m_pData;
 }
 
+/*
 CMyString& CMyString::operator = (const CMyString& str)
 {
     if(this == &str)
@@ -61,6 +62,19 @@ CMyString& CMyString::operator = (const CMyString& str)
     strcpy(m_pData, str.m_pData);
 
     return *this;
+}
+*/
+CMyString& CMyString::operator = (const CMyString& str)
+{
+  if(this != &str) {
+    CMyString strTemp(str);
+
+    char* pTemp = strTemp.m_pData;
+    strTemp.m_pData = m_pData;
+    m_pData = pTemp;
+  }
+
+  return *this;
 }
 
 // ====================≤‚ ‘¥˙¬Î====================
@@ -129,8 +143,8 @@ void Test3()
 
 int main(int argc, char* argv[])
 {
-    Test1();
-    Test2();
+    // Test1();
+    // Test2();
     Test3();
 
     return 0;

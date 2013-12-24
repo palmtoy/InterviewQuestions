@@ -3,8 +3,7 @@
 
 // 《剑指Offer——名企面试官精讲典型编程题》代码
 // 著作权所有者：何海涛
-
-#include "stdafx.h"
+#include <stdio.h>
 
 // 二维数组matrix中，每一行都从左到右递增排序，
 // 每一列都从上到下递增排序
@@ -34,7 +33,7 @@ bool Find(int* matrix, int rows, int columns, int number)
 }
 
 // ====================测试代码====================
-void Test(char* testName, int* matrix, int rows, int columns, int number, bool expected)
+void Test(char const* testName, int* matrix, int rows, int columns, int number, bool expected)
 {
     if(testName != NULL)
         printf("%s begins: ", testName);
@@ -118,7 +117,7 @@ void Test7()
     Test("Test7", NULL, 0, 0, 16, false);
 }
 
-int _tmain(int argc, _TCHAR* argv[])
+int main()
 {
     Test1();
     Test2();
